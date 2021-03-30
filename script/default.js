@@ -4,7 +4,7 @@
 //keyが押されたら。
 document.addEventListener("keydown", handleKeydown);
 // キャンバス
-var canbas = document.getElementById('mainCanvas');
+var canvas = document.getElementById('mainCanvas');
 // コンテキスト
 var ctx = canvas.getContext('2d')
 
@@ -21,7 +21,8 @@ function gameStart() {
     // 初期化処理
     my_init();
 
-    my_drow();
+    setInterval(drow, 10);
+
 
 }
 
@@ -30,14 +31,19 @@ function gameStart() {
  */
 function my_init() {
     // 座標を元に戻す。
-    myX = canbas.width / 2
-    myY = canbas.height / 2
+    myX = canvas.width / 2
+    myY = canvas.height / 2
 
-    console.log(myX);
-    console.log(myY);
+    // console.log(myX);
+    // console.log(myY);
+}
+
+function drow() {
+    clearCanvas();
+    my_drow();
 }
 function my_drow() {
-    ctx = canbas.getContext('2d');
+    ctx = canvas.getContext('2d');
     ctx.fillStyle = "rgb(0, 0, 255)";
     ctx.fillRect(myX, myY, 10, 10);
 
@@ -54,7 +60,7 @@ function clearCanvas() {
 function handleKeydown(event) {
     // キーコード(どのキーが押されたか)を取得
     var keyCode = event.keyCode;
-    console.log(keyCode);
+
 
 
 
@@ -68,12 +74,12 @@ function handleKeydown(event) {
         myX--;
     }
 
-    if (keyCode == 38 && myY < 145) {
+    if (keyCode == 38 && myY > 5) {
         // 上
-        myY++;
-    }
-    if (keyCode == 40 && myY > 3) {
-        // 下
         myY--;
+    }
+    if (keyCode == 40 && myY < 135) {
+        // 下
+        myY++;
     }
 }
