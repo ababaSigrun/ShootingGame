@@ -8,10 +8,18 @@ var canvas = document.getElementById('mainCanvas');
 // コンテキスト
 var ctx = canvas.getContext('2d')
 
+// 自機の位置
 var myX = 0;
 var myY = 0;
 
-var chargePower = 0;
+// 自機スピード
+var myMoveSpedd = 3;
+
+// 弾スピード
+var bulletSpeed = 5 ;
+
+var bulletDirection = 0 ;
+
 
 
 /**
@@ -35,8 +43,8 @@ function my_init() {
     myX = canvas.width / 2
     myY = canvas.height / 2
 
-    // console.log(myX);
-    // console.log(myY);
+    // →に設定
+    bulletDirection = 39;
 }
 
 function drow() {
@@ -67,20 +75,20 @@ function handleKeydown(event) {
 
     if (keyCode == 39 && myX < 290) {
         // 右
-        myX = myX + 3;
+        myX = myX + myMoveSpedd;
     }
     if (keyCode == 37 && myX > 10) {
         // 左   
-        myX = myX - 3;
+        myX = myX - myMoveSpedd;
     }
 
     if (keyCode == 38 && myY > 5) {
         // 上
-        myY = myY - 3;
+        myY = myY - myMoveSpedd;
     }
     if (keyCode == 40 && myY < 135) {
         // 下
-        myY = myY + 3;
+        myY = myY + myMoveSpedd;
     }
     if (keyCode == 32) {
         //　スペース
