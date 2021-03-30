@@ -21,6 +21,7 @@ function gameStart() {
     // 初期化処理
     my_init();
 
+    // 0.1秒ごとに
     setInterval(drow, 10);
 
 
@@ -60,26 +61,31 @@ function clearCanvas() {
 function handleKeydown(event) {
     // キーコード(どのキーが押されたか)を取得
     var keyCode = event.keyCode;
+    console.log(keyCode);
 
 
 
-
-    // 条件文で制御する
     if (keyCode == 39 && myX < 290) {
         // 右
-        myX++;
+        myX = myX + 3;
     }
     if (keyCode == 37 && myX > 10) {
         // 左   
-        myX--;
+        myX = myX - 3;
     }
 
     if (keyCode == 38 && myY > 5) {
         // 上
-        myY--;
+        myY = myY - 3;
     }
     if (keyCode == 40 && myY < 135) {
         // 下
-        myY++;
+        myY = myY + 3;
     }
+    if (keyCode == 32) {
+        //　スペース
+        // 弾丸発射処理
+        // https://www.programmingmat.jp/game_dev/webgame_dev/jssht1.html
+    }
+    
 }
