@@ -53,7 +53,6 @@ function drow() {
     myDrow();
     bulletCal();
     bulletDrow();
-
 }
 /**
  * 画面のリセット
@@ -74,6 +73,7 @@ function myDrow() {
  * 弾丸の座標計算
  */
 function bulletCal() {
+    console.log("bulletCal");
     for (i = 0; i < bulletList.length; i++) {
         if (bulletList[i].z == 37) {
             bulletList[i].x -= bulletSpeed;
@@ -99,12 +99,13 @@ function bulletCal() {
  * 弾丸を描写
  */
 function bulletDrow() {
+    console.log("bulletDrow");
     // 弾丸の色を設定
-    context.fillStyle = "rgb(0, 255, 255)";
+    ctx.fillStyle = "rgb(0, 255, 255)";
 
     // 発射済み弾丸を塗りつぶし正方形として描画
     for (i = 0; i < bulletList.length; i++) {
-        context.fillRect(bulletList[i].x - 1, bulletList[i].y, 2, 2);
+        ctx.fillRect(bulletList[i].x - 1, bulletList[i].y, 2, 2);
     }
 }
 
@@ -113,7 +114,7 @@ function bulletDrow() {
 function handleKeydown(event) {
     // キーコード(どのキーが押されたか)を取得
     var keyCode = event.keyCode;
-    console.log(keyCode);
+    //console.log(keyCode);
 
 
 
@@ -140,7 +141,7 @@ function handleKeydown(event) {
         // 弾丸オブジェクト作成
         var obj = new Object();
         obj.x = myX;
-        obj.y = myy;
+        obj.y = myY;
         obj.z = bulletDirection;
 
         bulletList.push(obj);
