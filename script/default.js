@@ -16,7 +16,7 @@ var myY = 0;
 var myMoveSpedd = 3;
 
 // 弾スピード
-var bulletSpeed = 8;
+var bulletSpeed = 4;
 // 弾方向
 var bulletDirection = 0;
 // 弾リスト
@@ -31,7 +31,7 @@ function gameStart() {
     my_init();
 
     // 0.1秒ごとに
-    setInterval(drow, 10);
+    setInterval(drow, 100);
 
 
 }
@@ -73,7 +73,7 @@ function myDrow() {
  * 弾丸の座標計算
  */
 function bulletCal() {
-    console.log("bulletCal");
+    // console.log("bulletCal" );
     for (i = 0; i < bulletList.length; i++) {
         if (bulletList[i].z == 37) {
             bulletList[i].x -= bulletSpeed;
@@ -84,6 +84,7 @@ function bulletCal() {
         } else if (bulletList[i].z == 40) {
             bulletList[i].y += bulletSpeed;
         }
+        // console.log(bulletList[i].z);
     }
     // 枠の外に行ったものは除外する。
     while (bulletList.length > 0 && (bulletList[0].y < 0 ||
@@ -99,13 +100,13 @@ function bulletCal() {
  * 弾丸を描写
  */
 function bulletDrow() {
-    console.log("bulletDrow");
+    // console.log("bulletDrow");
     // 弾丸の色を設定
     ctx.fillStyle = "rgb(0, 255, 255)";
 
     // 発射済み弾丸を塗りつぶし正方形として描画
     for (i = 0; i < bulletList.length; i++) {
-        ctx.fillRect(bulletList[i].x - 1, bulletList[i].y, 2, 2);
+        ctx.fillRect(bulletList[i].x - 1, bulletList[i].y, 5, 7);
     }
 }
 
@@ -115,9 +116,6 @@ function handleKeydown(event) {
     // キーコード(どのキーが押されたか)を取得
     var keyCode = event.keyCode;
     //console.log(keyCode);
-
-
-
     if (keyCode == 39 && myX < 290) {
         // 右
         myX = myX + myMoveSpedd;
@@ -136,8 +134,7 @@ function handleKeydown(event) {
         myY = myY + myMoveSpedd;
         bulletDirection = keyCode;
     } else if (keyCode == 32) {
-        //　スペース
-        // 弾丸発射処理
+        //　スペース  弾丸発射処理
         // 弾丸オブジェクト作成
         var obj = new Object();
         obj.x = myX;
