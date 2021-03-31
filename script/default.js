@@ -27,6 +27,8 @@ var bulletList = new Array();
  * メイン処理
  */
 function gameStart() {
+    console.log("push button");
+    document.getElementById('mainCanvas');
     // 初期化処理
     my_init();
 
@@ -84,7 +86,6 @@ function bulletCal() {
         } else if (bulletList[i].z == 40) {
             bulletList[i].y += bulletSpeed;
         }
-        // console.log(bulletList[i].z);
     }
     // 枠の外に行ったものは除外する。
     while (bulletList.length > 0 && (bulletList[0].y < 0 ||
@@ -115,7 +116,6 @@ function bulletDrow() {
 function handleKeydown(event) {
     // キーコード(どのキーが押されたか)を取得
     var keyCode = event.keyCode;
-    //console.log(keyCode);
     if (keyCode == 39 && myX < 290) {
         // 右
         myX = myX + myMoveSpedd;
@@ -133,8 +133,8 @@ function handleKeydown(event) {
         // 下
         myY = myY + myMoveSpedd;
         bulletDirection = keyCode;
-    } else if (keyCode == 32) {
-        //　スペース  弾丸発射処理
+    } else if (keyCode == 90) {
+        //　ｚキー  弾丸発射処理
         // 弾丸オブジェクト作成
         var obj = new Object();
         obj.x = myX;
@@ -143,5 +143,5 @@ function handleKeydown(event) {
 
         bulletList.push(obj);
     }
-
+    console.log(keyCode);
 }
