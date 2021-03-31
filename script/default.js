@@ -12,28 +12,21 @@ var ctx = canvas.getContext('2d')
 var myX = 0;
 var myY = 0;
 
-// 自機スピード
-var myMoveSpedd = 3;
+var bulletList = new Array();// 弾リスト
 
-// 弾スピード
-var bulletSpeed = 4;
-// 弾方向
-var bulletDirection = 0;
-// 弾リスト
-var bulletList = new Array();
-
-
+var enemyList = new Array(); // 現在出現している敵リスト
 /**
  * メイン処理
  */
 function gameStart() {
-    console.log("push button");
-    document.getElementById('mainCanvas');
+    // タイトル表示したい。
+    // setTytle();
+
     // 初期化処理
     my_init();
 
     // 0.1秒ごとに
-    setInterval(drow, 100);
+    setInterval(main, 100);
 
 
 }
@@ -49,12 +42,16 @@ function my_init() {
     // →に設定
     bulletDirection = 39;
 }
-
-function drow() {
-    clearCanvas();
-    myDrow();
-    bulletCal();
-    bulletDrow();
+/**
+ * メイン処理
+ */
+function main() {
+    clearCanvas();// 画面リセット
+    myDrow();     // 時期の描写
+    bulletCal();　// 弾丸の計算
+    // enemyCal() // 敵機計算
+    bulletDrow(); // 弾丸の描写
+    // enemyDrow(); // 敵機の描写
 }
 /**
  * 画面のリセット
