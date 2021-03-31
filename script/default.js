@@ -49,9 +49,9 @@ function main() {
     clearCanvas();// 画面リセット
     myDrow();     // 時期の描写
     bulletCal();　// 弾丸の計算
-    // enemyCal() // 敵機計算
+    enemyCal() // 敵機計算
     bulletDrow(); // 弾丸の描写
-    // enemyDrow(); // 敵機の描写
+    enemyDrow(); // 敵機の描写
 }
 /**
  * 画面のリセット
@@ -140,5 +140,4 @@ function handleKeydown(event) {
 
         bulletList.push(obj);
     }
-    console.log(keyCode);
 }
