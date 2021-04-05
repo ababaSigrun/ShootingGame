@@ -6,3 +6,6 @@ ShootingGame for HTML5 &amp; JavaScript
 z key to fire a bullet.
 
 
+# BGM
+OtoLogic 
+https://otologic.jp/free/license.html
