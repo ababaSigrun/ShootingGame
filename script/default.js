@@ -26,7 +26,7 @@ function gameStart() {
     my_init();
 
     // 0.1秒ごとに
-    setInterval(main, 100);
+    setInterval(main, DepictionInterval);
 
 
 }
