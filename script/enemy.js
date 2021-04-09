@@ -24,24 +24,32 @@ class Enemy {
  */
 function enemyCal() {
     var random = Math.random();
+    var color = checkEnemyColor();
+
+    console.log("color : " + color);
+}
+
+
+/**
+ * 登場する敵判定。
+ */
+function checkEnemyColor() {
     var color = "none";
     // 出現判定。
     if (random <= 0.98) {
         // 敵出現なし
-        console.log(color);
     } else if (random > 0.98 && random <= 0.99) {
         // 黄色出現
         color = "yellow";
-        console.log(color);
     } else if (random > 0.99 && random <= 0.999) {
         // 緑出現
-        color= "Green";
-        console.log(color);
+        color = "Green";
     } else if (random > 0.999) {
         color = "Pink";
-        console.log(color);
     }
+    return color;
 }
+
 
 /**
  * 敵機描写
