@@ -23,9 +23,11 @@ class Enemy {
  * 敵機計算
  */
 function enemyCal() {
-    var random = Math.random();
+    // 登場敵機判定
     var color = checkEnemyColor();
 
+    // 敵機出現位置判定
+    
     console.log("color : " + color);
 }
 
@@ -34,6 +36,7 @@ function enemyCal() {
  * 登場する敵判定。
  */
 function checkEnemyColor() {
+    var random = Math.random();
     var color = "none";
     // 出現判定。
     if (random <= 0.98) {
