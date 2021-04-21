@@ -25,9 +25,12 @@ class Enemy {
 function enemyCal() {
     // 登場敵機判定
     var color = checkEnemyColor();
-
+    var direction = "";
+    if (color != "none") {
+        direction = checkEnemyColor();
+    }
     // 敵機出現位置判定
-    
+
     console.log("color : " + color);
 }
 
@@ -51,6 +54,29 @@ function checkEnemyColor() {
         color = "Pink";
     }
     return color;
+}
+
+/**
+ * 敵機が出現する方角を決める
+ */
+function checkEnemyDirection() {
+    var random = Math.random();
+    var direction = "";
+    // 出現判定。
+    if (random <= 0.25) {
+        // 北
+        direction = "north";
+    } else if (random > 0.25 && random <= 0.5) {
+        // 西
+        direction = "west";
+    } else if (random > 0.5 && random <= 0.75) {
+        // 東
+        direction = "east";
+    } else {
+        // 南
+        direction = "south";
+    }
+    return direction;
 }
 
 
