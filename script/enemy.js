@@ -27,11 +27,11 @@ function enemyCal() {
     var color = checkEnemyColor();
     var direction = "";
     if (color != "none") {
-        direction = checkEnemyColor();
+        direction = checkEnemyDirection();
     }
     // 敵機出現位置判定
 
-    console.log("color : " + color);
+    console.log("direction : " + direction);
 }
 
 
