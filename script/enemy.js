@@ -1,10 +1,10 @@
 
 // 敵キャラ基底クラス
 class Enemy {
-    constructor( color, score, appearance, xSpeed, ySpeed, hitPoint, count, maxCount, x, y) {
+    constructor( color, score, direction, xSpeed, ySpeed, hitPoint, count, maxCount, x, y) {
         this.color = color; // 色
         this.score = score; // スコア
-        this.appearance = appearance; // 出現した方向
+        this.direction = direction; // 出現した方向
         this.xSpeed = xSpeed; // x方向へのスピード
         this.ySpeed = ySpeed; // y方向へのスピード
         this.hitPoint = hitPoint; // ヒットポイント
@@ -23,8 +23,8 @@ class Enemy {
  */
 function enemyCal() {
     // 登場敵機判定
-    var color = checkEnemyColor();
-    var direction = "";
+    var color = checkEnemyColor(); // 色
+    var direction = "";　// 方向
     if (color != "none") {
         direction = checkEnemyDirection();
     }
