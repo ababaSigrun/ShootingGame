@@ -1,8 +1,7 @@
 
 // 敵キャラ基底クラス
 class Enemy {
-    constructor(name, color, score, appearance, xSpeed, ySpeed, hitPoint, count, maxCount, x, y) {
-        this.name = name; // 名前
+    constructor( color, score, appearance, xSpeed, ySpeed, hitPoint, count, maxCount, x, y) {
         this.color = color; // 色
         this.score = score; // スコア
         this.appearance = appearance; // 出現した方向
@@ -33,6 +32,7 @@ function enemyCal() {
 
     console.log("direction : " + direction);
 }
+
 
 
 /**
